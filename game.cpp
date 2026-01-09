@@ -129,4 +129,47 @@ bool decodeDirection(char ch, int& dir)
     }
     return true;
 }
+
+
+  // Recommend a move for a player at (r,c):  A false return means the
+  // recommendation is that the player should drop a poisoned brain and
+  // not move; otherwise, this function sets bestDir to the recommended
+  // direction to move and returns true.
+bool recommendMove(const Arena& a, int r, int c, int& bestDir)
+{
+      // How dangerous is it to stand?
+    int standDanger = computeDanger(a, r, c);
+
+      // if it's not safe, see if moving is safer
+    if (standDanger > 0)
+    {
+        int bestMoveDanger = standDanger;
+        int bestMoveDir = NORTH;  // arbitrary initialization
+
+          // check the four directions to see if any move is
+          // better than standing, and if so, record the best
+        for (int dir = 0; dir < NUMDIRS; dir++)
+        {
+            int rnew = r;
+            int cnew = c;
+            if (attemptMove(a, dir, rnew, cnew))
+            {
+                int danger = computeDanger(a, rnew, cnew);
+                if (danger < bestMoveDanger)
+                {
+                    bestMoveDanger = danger;
+                    bestMoveDir = dir;
+                }
+            }
+        }
+
+          // if moving is better than standing, recommend move
+        if (bestMoveDanger < standDanger)
+        {
+            bestDir = bestMoveDir;
+            return true;
+        }
+    }
+    return false;  // recommend standing
+}
 }
