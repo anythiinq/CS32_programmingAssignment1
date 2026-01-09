@@ -172,4 +172,26 @@ bool recommendMove(const Arena& a, int r, int c, int& bestDir)
     }
     return false;  // recommend standing
 }
+
+int computeDanger(const Arena& a, int r, int c)
+{
+      // Our measure of danger will be the number of zombies that might move
+      // to position (r,c).  If a zombie is in that position, it is fatal,
+      // so a large value is returned.
+
+    if (a.numberOfZombiesAt(r,c) > 0)
+        return MAXZOMBIES+1;
+
+    int danger = 0;
+    if (r > 1)
+        danger += a.numberOfZombiesAt(r-1,c);
+    if (r < a.rows())
+        danger += a.numberOfZombiesAt(r+1,c);
+    if (c > 1)
+        danger += a.numberOfZombiesAt(r,c-1);
+    if (c < a.cols())
+        danger += a.numberOfZombiesAt(r,c+1);
+
+    return danger;
+}
 }
