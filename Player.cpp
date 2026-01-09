@@ -1,6 +1,6 @@
-#include "player.h"
+#include "Player.h"
 #include "globals.h"
-#include "arena.h"
+#include "Arena.h"
 #include <string>
 #include <cstdlib>
 #include <iostream>
