@@ -1,5 +1,5 @@
-#include "zombie.h"
-#include "arena.h"
+#include "Zombie.h"
+#include "Arena.h"
 #include "globals.h"
 #include <cstdlib> // used for exit(1)
 #include <iostream>
