@@ -115,3 +115,17 @@ void Game::play()
     else
         cout << "You win." << endl;
 }
+
+
+bool decodeDirection(char ch, int& dir)
+{
+    switch (tolower(ch))
+    {
+      default:  return false;
+      case 'n': dir = NORTH; break;
+      case 'e': dir = EAST;  break;
+      case 's': dir = SOUTH; break;
+      case 'w': dir = WEST;  break;
+    }
+    return true;
+}
