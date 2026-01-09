@@ -116,7 +116,7 @@ void Game::play()
         cout << "You win." << endl;
 }
 
-
+namespace {
 bool decodeDirection(char ch, int& dir)
 {
     switch (tolower(ch))
@@ -128,4 +128,5 @@ bool decodeDirection(char ch, int& dir)
       case 'w': dir = WEST;  break;
     }
     return true;
+}
 }
