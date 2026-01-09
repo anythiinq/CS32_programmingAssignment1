@@ -1,7 +1,7 @@
-#include "game.h"
+#include "Game.h"
 #include "globals.h"
-#include "arena.h"
-#include "player.h"
+#include "Arena.h"
+#include "Player.h"
 #include <cctype>
 #include <string>
 #include <iostream>
