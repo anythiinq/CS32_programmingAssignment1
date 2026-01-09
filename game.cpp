@@ -2,6 +2,7 @@
 #include "globals.h"
 #include "arena.h"
 #include "player.h"
+#include <cctype>
 #include <string>
 #include <iostream>
 #include <cstdlib>
