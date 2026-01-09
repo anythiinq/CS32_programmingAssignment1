@@ -1,4 +1,5 @@
 #include "game.h"
+#include "globals.h"
 #include "arena.h"
 #include "player.h"
 #include <string>
