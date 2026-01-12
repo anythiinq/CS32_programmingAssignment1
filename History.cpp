@@ -6,8 +6,8 @@ History::History(int nRows, int nCols)
 {
 }
 
-bool History::record(int r, int c) 
-{
+bool History::record(int r, int c) {
+  
 }
 
 void History::display() const 
