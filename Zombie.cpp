@@ -34,7 +34,7 @@ int Zombie::col() const
 
 bool Zombie::isDead() const
 {
-    return  == 0;
+    return  m_health == 0;
 }
 
 void Zombie::move()
