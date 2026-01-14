@@ -1,5 +1,6 @@
 #include "globals.h"
 #include "Arena.h"
+#include <random>
 #include <iostream>
 using namespace std;
 
