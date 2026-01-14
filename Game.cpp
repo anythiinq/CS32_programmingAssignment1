@@ -97,11 +97,15 @@ string Game::takePlayerTurn()
                 return player->dropPoisonedBrain();
             } else if (decodeDirection(playerMove[0], dir)) {
                 return player->move(dir);
-            } else if (tolower(playerMove[0]) == 'h') {
-                m_arena->history().display();
-                cout << "Press enter to continue.";
-                cin.ignore(10000,'\n');
             }
+        }
+        
+        if (tolower(playerMove[0]) == 'h') {
+            m_arena->history().display();
+            cout << "Press enter to continue.";
+            cin.ignore(10000,'\n');
+            m_arena->display("");
+            continue;
         }
         cout << "Player move must be nothing, or 1 character n/e/s/w/x/h." << endl;
     }
