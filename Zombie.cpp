@@ -34,7 +34,7 @@ int Zombie::col() const
 
 bool Zombie::isDead() const
 {
-    return m_health == 0;
+    return  == 0;
 }
 
 void Zombie::move()
@@ -51,13 +51,14 @@ void Zombie::move()
         if (m_arena->getCellStatus(m_row, m_col) == HAS_POISON)
         {
             m_arena->setCellStatus(m_row, m_col, EMPTY);
-            m_health--;
+            --;
         }
     }
 
-    if (m_health < INITIAL_ZOMBIE_HEALTH)
+    if (m_health < INITIAL_ZOMBIE_HEALTH) {
         m_idleTurnsRemaining = POISONED_IDLE_TIME;
         editHistory();
+    }
 }
 
 void Zombie::editHistory()
