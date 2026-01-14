@@ -42,6 +42,9 @@ void Zombie::move()
     if (m_idleTurnsRemaining > 0)
     {
         m_idleTurnsRemaining--;
+        if (m_health < INITIAL_ZOMBIE_HEALTH) {
+            editHistory();
+        }
         return;
     }
 
@@ -64,7 +67,5 @@ void Zombie::move()
 void Zombie::editHistory()
 {
       // if the zombie is poisoned, edit history
-    if (m_health == INITIAL_ZOMBIE_HEALTH - 1) {
-        m_arena->history().record(m_row, m_col);
-    }
+    m_arena->history().record(m_row, m_col);
 }
