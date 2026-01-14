@@ -42,7 +42,7 @@ void Zombie::move()
     if (m_idleTurnsRemaining > 0)
     {
         m_idleTurnsRemaining--;
-        if (m_health < INITIAL_ZOMBIE_HEALTH) {
+        if (m_health == INITIAL_ZOMBIE_HEALTH - 1) {
             editHistory();
         }
         return;
@@ -60,6 +60,8 @@ void Zombie::move()
 
     if (m_health < INITIAL_ZOMBIE_HEALTH) {
         m_idleTurnsRemaining = POISONED_IDLE_TIME;
+    }
+    if (m_health == INITIAL_ZOMBIE_HEALTH - 1) {
         editHistory();
     }
 }
