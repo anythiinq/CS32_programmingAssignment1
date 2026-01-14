@@ -57,4 +57,13 @@ void Zombie::move()
 
     if (m_health < INITIAL_ZOMBIE_HEALTH)
         m_idleTurnsRemaining = POISONED_IDLE_TIME;
+        editHistory();
+}
+
+void Zombie::editHistory()
+{
+      // if the zombie is poisoned, edit history
+    if (m_health == INITIAL_ZOMBIE_HEALTH - 1) {
+        m_arena->history().record(m_row, m_col);
+    }
 }
