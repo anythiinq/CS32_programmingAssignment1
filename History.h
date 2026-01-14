@@ -1,6 +1,6 @@
-// NOT DONE YET I THINK
 #ifndef HISTORY_H
 #define HISTORY_H
+#include "globals.h"
 
 class History
 {
@@ -8,9 +8,14 @@ class History
 		History(int nRows, int nCols);
 		bool record(int r, int c);
 		void display() const;
-	private: 
+	private:
 		int m_rows;
 		int m_cols;
+        int m_grid[MAXROWS][MAXCOLS];
+    
+          // private implementations
+        void edit(int r, int c);
+        
 };
 
 #endif
