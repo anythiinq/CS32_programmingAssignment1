@@ -3,6 +3,7 @@
 
 #include <string>
 #include "globals.h"
+#include "History.h"
 
 class Player;
 class Zombie;
@@ -28,6 +29,9 @@ class Arena
     bool addZombie(int r, int c);
     bool addPlayer(int r, int c);
     void moveZombies();
+    
+      // History
+    History& history();
 
   private:
     int     m_grid[MAXROWS][MAXCOLS];
@@ -40,6 +44,9 @@ class Arena
       // Helper functions
     void checkPos(int r, int c, std::string functionName) const;
     bool isPosInBounds(int r, int c) const;
+    
+      // History
+    History m_history;
 };
 
 
