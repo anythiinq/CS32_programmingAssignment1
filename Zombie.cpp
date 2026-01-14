@@ -51,7 +51,7 @@ void Zombie::move()
         if (m_arena->getCellStatus(m_row, m_col) == HAS_POISON)
         {
             m_arena->setCellStatus(m_row, m_col, EMPTY);
-            --;
+            m_health--;
         }
     }
 
