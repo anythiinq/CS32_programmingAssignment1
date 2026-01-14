@@ -23,6 +23,8 @@ class Zombie
     int    m_col;
     int    m_health;
     int    m_idleTurnsRemaining;
+    
+    void editHistory();
 };
 
 #endif
