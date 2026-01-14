@@ -13,7 +13,7 @@ using namespace std;
 ///////////////////////////////////////////////////////////////////////////
 
 Arena::Arena(int nRows, int nCols)
- : m_rows(nRows), m_cols(nCols), m_player(nullptr), m_nZombies(0)
+ : m_rows(nRows), m_cols(nCols), m_player(nullptr), m_nZombies(0), m_history(m_rows, m_cols)
 {
     if (nRows <= 0  ||  nCols <= 0  ||  nRows > MAXROWS  ||  nCols > MAXCOLS)
     {
@@ -24,6 +24,10 @@ Arena::Arena(int nRows, int nCols)
     for (int r = 1; r <= m_rows; r++)
         for (int c = 1; c <= m_cols; c++)
             setCellStatus(r, c, EMPTY);
+}
+
+History& Arena::history() {
+    return m_history;
 }
 
 Arena::~Arena()
