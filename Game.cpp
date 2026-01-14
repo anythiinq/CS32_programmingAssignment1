@@ -9,6 +9,12 @@
 
 using namespace std;
 
+namespace {
+    bool decodeDirection(char ch, int& dir);
+    bool recommendMove(const Arena& a, int r, int c, int& bestDir);
+    int  computeDanger(const Arena& a, int r, int c);
+}
+
 ///////////////////////////////////////////////////////////////////////////
 //  Game implementation
 ///////////////////////////////////////////////////////////////////////////
@@ -71,7 +77,7 @@ string Game::takePlayerTurn()
 {
     for (;;)
     {
-        cout << "Your move (n/e/s/w/x or nothing): ";
+        cout << "Your move (n/e/s/w/x/h or nothing): ";
         string playerMove;
         getline(cin, playerMove);
 
@@ -91,8 +97,12 @@ string Game::takePlayerTurn()
                 return player->dropPoisonedBrain();
             else if (decodeDirection(playerMove[0], dir))
                 return player->move(dir);
+            else if (tolower(playerMove[0] == 'h'))
+                m_arena->history().display();
+                cout << "Press enter to continue.";
+                cin.ignore(10000,'\n');
         }
-        cout << "Player move must be nothing, or 1 character n/e/s/w/x." << endl;
+        cout << "Player move must be nothing, or 1 character n/e/s/w/x/h." << endl;
     }
 }
 
