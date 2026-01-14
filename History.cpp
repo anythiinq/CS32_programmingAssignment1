@@ -14,7 +14,7 @@ History::History(int nRows, int nCols)
 
 bool History::record(int r, int c) 
 {
-    if (r <= 0  ||  r <= 0  ||  r > MAXROWS  ||  r > MAXCOLS)
+    if (r <= 0  ||  c <= 0  ||  r > m_rows  ||  c > m_cols)
     {
         return false;
     }
@@ -36,7 +36,7 @@ void History::display() const
         {
             if (m_grid[i][j] == 0) {
                 displayGrid[i][j] = '.';
-            } else if (m_grid[i][j] > 26) {
+            } else if (m_grid[i][j] >= 26) {
                 displayGrid[i][j] = 'Z';
             } else {
                 displayGrid[i][j] = 'A' + m_grid[i][j] - 1;
