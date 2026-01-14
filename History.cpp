@@ -25,7 +25,7 @@ bool History::record(int r, int c)
 void History::display() const 
 {
     clearScreen();
-    char displayGrid[m_rows][m_cols];
+    char displayGrid[MAXROWS][MAXCOLS];
     
     int i;
     int j;
